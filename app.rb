@@ -5,6 +5,7 @@ require 'open-uri'
 require 'sinatra/json'
 require './models/quiz.rb'
 require './image_uploader.rb'
+require 'json'
 
 get '/' do
     erb :index
@@ -56,6 +57,14 @@ get '/user_login' do
 end
 
 get '/ranking' do
-    @users = User.all.sort.reverse
+    @users = User.all.sort
     erb :ranking
+end
+
+get '/test' do
+    fp = open("problem.json",'r')
+    data = fp.read
+    json = JSON.parse(data)
+    @contents = json
+    erb :test 
 end

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Quest!</title>
+</head>
+<body>
+    <% if @content.nil? %>
+    Problem.create([
+    
+    <% @contents.each do |content| %>
+    {
+    <br>
+    content: "<%= content["problem"] %>",<br>
+    result: 0,<br>
+    sum: 0,<br>
+    user_id: 1,<br>
+    <% for num in 1..4 do %>
+        select<%= num %>: "<%= content["select" + String(num)]%>",<br>
+    <% end %>
+    result_id: <%= content["result"] %><br>
+    },<br>
+       
+    <% end %>
+    ])
+    <% end %>
+    
+</body>
+</html>
