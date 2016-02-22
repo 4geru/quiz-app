@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Quest!</title>
+</head>
+<body>
+    <form action='/create' method='post'>
+        <p>名前 : <input type="text" name="user_id"></p>
+        <p>問題 : <input type="text" name="content"></p>
+        <p>選択肢1 : <input type="text" name="select1"></p>
+        <p>選択肢2 : <input type="text" name="select2"></p>
+        <p>選択肢3 : <input type="text" name="select3"></p>
+        <p>選択肢4 : <input type="text" name="select4"></p>
+        
+        答えは？
+        <input type="radio" name="result_id" value="1">1
+        <input type="radio" name="result_id" value="2">2
+        <input type="radio" name="result_id" value="3">3
+        <input type="radio" name="result_id" value="4">4
+
+        <p><input type="submit" value="編集完了"></p>
+    </form>
+    
+</body>
+</html>

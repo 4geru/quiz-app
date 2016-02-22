@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Quest!</title>
+</head>
+<body>
+    this
+    <% if @users.present? %>
+        <%  @users.each do |content|%>
+            pp
+            <%= content.name %> :
+            <%= content.join %> :
+            <%= content.point %><br>
+            <hr>
+        <% end %>
+    <% end %>
+    
+</body>
+</html>

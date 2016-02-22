@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Quest!</title>
+</head>
+<body>
+    <%= @user.name %>
+    <br>
+    <% if !@problems.present? %>
+        <%  @user.problems.each do |content|%>
+            <hr>
+            <%= content.content %><br>
+            <%= content.select1 %><br>
+            <%= content.select2 %><br>
+            <%= content.select3 %><br>
+            <%= content.select4 %><br>
+            <hr>
+        <% end %>
+    <% end %>
+    
+</body>
+</html>
