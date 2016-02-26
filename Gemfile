@@ -7,6 +7,7 @@ gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'nokogiri'
 gem 'cloudinary'
+gem 'sinatra-websocket'
 
 gem 'dotenv'
 

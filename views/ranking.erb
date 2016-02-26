@@ -5,10 +5,10 @@
     <title>Quiz Quest!</title>
 </head>
 <body>
-    this
     <% if @users.present? %>
-        <%  @users.each do |content|%>
-            pp
+        <% rank = 0 %>
+        <% @users.each do |content|%>
+            <%= rank += 1 %>th
             <%= content.name %> :
             <%= content.join %> :
             <%= content.point %><br>

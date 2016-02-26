@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 end
 
 class Contest < ActiveRecord::Base
-    belongs_to :user 
+    belongs_to :user
 end
 
 class Problem < ActiveRecord::Base

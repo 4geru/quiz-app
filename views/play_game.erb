@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Quest!</title>
+    <link rel='stylesheet' href='/stylesheets/play-game.css' type='text/css' media='all' />
+<script type="text/javascript">
+ 	window.onload = function(){
+    var user = document.getElementById("user");
+    var msgbox = document.getElementById("msgs");
+    var form = document.getElementById("form");
+    var forms = document.getElementsByTagName("form");
+    var send_msg = document.getElementById("send_msg");
+    var ws = new WebSocket('wss://' + window.location.host + "/websocket");
+
+    ws.onopen = function() { 
+      console.log("connection opened<%= @content.id%>");
+    }
+    ws.onclose = function() { 
+      console.log("connection closed");
+    }
+    ws.onmessage = function(m) {
+      var li = document.createElement("li");
+      var replay = JSON.parse(m.data);
+      console.log(replay);
+      if(replay.room_id == document.location.pathname.split('/')[2]){
+	      li.textContent = replay.user + ' : ' + replay.message + " " + replay.room_id;
+	      msgbox.insertBefore(li, msgbox.firstChild);
+      }
+    }
+
+    send_msg.onclick = function(){
+      send_msg.value = ""; 
+    }
+
+    form.onsubmit = function(){
+      var item = {
+        message: send_msg.value,
+        user: user.value,
+        room_id: <%= @content.id %>
+      }
+      ws.send(JSON.stringify(item));
+      send_msg.value = "";
+      return false;
+    }
+
+  }
+</script> 
+
+</head>
+<body>
+    
+   	<table> <form>
+		<tr >
+			<td><button name='btn' value='<%=@content.problem1%>'></td> 			<td><button name='btn' value='<%=@content.problem2%>'></td> 			<td><button name='btn' value='<%=@content.problem3%>'></td> 			<td><button name='btn' value='<%=@content.problem4%>'></td> 			<td><button name='btn' value='<%=@content.problem5%>'></td> 
+		</tr>
+		<tr >
+			<td><button name='btn' value='<%=@content.problem6%>'></td> 			<td><button name='btn' value='<%=@content.problem7%>'></td> 			<td><button name='btn' value='<%=@content.problem8%>'></td> 			<td><button name='btn' value='<%=@content.problem9%>'></td> 			<td><button name='btn' value='<%=@content.problem10%>'></td> 
+		</tr>
+		<tr >
+			<td><button name='btn' value='<%=@content.problem11%>'></td> 			<td><button name='btn' value='<%=@content.problem12%>'></td> 			<td><button name='btn' value='<%=@content.problem13%>'></td> 			<td><button name='btn' value='<%=@content.problem14%>'></td> 			<td><button name='btn' value='<%=@content.problem15%>'></td> 
+		</tr>
+		<tr >
+			<td><button name='btn' value='<%=@content.problem16%>'></td> 			<td><button name='btn' value='<%=@content.problem17%>'></td> 			<td><button name='btn' value='<%=@content.problem18%>'></td> 			<td><button name='btn' value='<%=@content.problem19%>'></td> 			<td><button name='btn' value='<%=@content.problem20%>'></td> 
+		</tr>
+		<tr >
+			<td><button name='btn' value='<%=@content.problem21%>'></td> 			<td><button name='btn' value='<%=@content.problem22%>'></td> 			<td><button name='btn' value='<%=@content.problem23%>'></td> 			<td><button name='btn' value='<%=@content.problem24%>'></td> 			<td><button name='btn' value='<%=@content.problem25%>'></td> 
+		</tr>
+	</table></form>
+
+
+	    
+	<form id="form">
+	   <input type="text" id="user">
+	   <input type="text" id="send_msg">
+	   <input type="submit">
+	 </form>
+	 
+	 <ul id="msgs"></ul>
+</body>
+</html>

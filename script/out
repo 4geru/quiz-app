@@ -1,0 +1,17 @@
+<table> <form>
+		<tr >
+			<td><button name='btn' value='<%=@content.problem1%>'></td> 			<td><button name='btn' value='<%=@content.problem2%>'></td> 			<td><button name='btn' value='<%=@content.problem3%>'></td> 			<td><button name='btn' value='<%=@content.problem4%>'></td> 			<td><button name='btn' value='<%=@content.problem5%>'></td> 
+		</tr>
+		<tr >
+			<td><button name='btn' value='<%=@content.problem6%>'></td> 			<td><button name='btn' value='<%=@content.problem7%>'></td> 			<td><button name='btn' value='<%=@content.problem8%>'></td> 			<td><button name='btn' value='<%=@content.problem9%>'></td> 			<td><button name='btn' value='<%=@content.problem10%>'></td> 
+		</tr>
+		<tr >
+			<td><button name='btn' value='<%=@content.problem11%>'></td> 			<td><button name='btn' value='<%=@content.problem12%>'></td> 			<td><button name='btn' value='<%=@content.problem13%>'></td> 			<td><button name='btn' value='<%=@content.problem14%>'></td> 			<td><button name='btn' value='<%=@content.problem15%>'></td> 
+		</tr>
+		<tr >
+			<td><button name='btn' value='<%=@content.problem16%>'></td> 			<td><button name='btn' value='<%=@content.problem17%>'></td> 			<td><button name='btn' value='<%=@content.problem18%>'></td> 			<td><button name='btn' value='<%=@content.problem19%>'></td> 			<td><button name='btn' value='<%=@content.problem20%>'></td> 
+		</tr>
+		<tr >
+			<td><button name='btn' value='<%=@content.problem21%>'></td> 			<td><button name='btn' value='<%=@content.problem22%>'></td> 			<td><button name='btn' value='<%=@content.problem23%>'></td> 			<td><button name='btn' value='<%=@content.problem24%>'></td> 			<td><button name='btn' value='<%=@content.problem25%>'></td> 
+		</tr>
+</table></form>

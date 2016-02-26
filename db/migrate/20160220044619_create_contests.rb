@@ -5,7 +5,7 @@ class CreateContests < ActiveRecord::Migration
       		t.integer :user2
       		t.integer :user3
       		t.integer :user4
-      
+      		
       		t.integer :problem1
 			t.integer :problem2
 			t.integer :problem3
