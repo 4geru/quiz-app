@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220044630) do
+ActiveRecord::Schema.define(version: 20160222110052) do
 
   create_table "contests", force: :cascade do |t|
     t.integer  "user1"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160220044630) do
     t.integer  "problem23"
     t.integer  "problem24"
     t.integer  "problem25"
-    t.integer  "result1"
+    t.integer  "result1",    default: 0
     t.integer  "result2"
     t.integer  "result3"
     t.integer  "result4"
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20160220044630) do
     t.integer  "result23"
     t.integer  "result24"
     t.integer  "result25"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "problems", force: :cascade do |t|

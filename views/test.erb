@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz Quest!</title>
+    <link rel='stylesheet' href='/stylesheets/play-game.css' type='text/css' media='all' />
 </head>
 <body>
     <% if @content.nil? %>
-    Problem.create([
     
     <% @contents.each do |content| %>
     {
@@ -22,7 +22,6 @@
     },<br>
        
     <% end %>
-    ])
     <% end %>
     
 </body>

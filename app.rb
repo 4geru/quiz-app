@@ -55,6 +55,14 @@ end
 get '/room/:id' do
     @content = Contest.find(params[:id])
     puts Problem.find(@content.problem1).content
+    @user_id = 1
+    id = Contest.find(Contest.count)["user" + String(@user_id)]
+    if id < 0
+      @user_name = "player" + String(id.abs)
+    else
+      @user_name = User.find(id)
+    end
+
     erb :play_game
 end
 
@@ -141,6 +149,93 @@ get '/websocket' do
           
           p JSON.parse(msg)
           s.send(msg)
+        end
+      end
+      ws.onclose do
+        settings.sockets.delete(ws)
+      end
+    end
+  end
+end
+
+get '/websocket1' do
+  if request.websocket? then
+    request.websocket do |ws|
+      ws.onopen do
+        settings.sockets << ws
+      end
+      ws.onmessage do |msg|
+        settings.sockets.each do |s|
+          
+          obj = JSON.parse(msg)
+          problem =  Problem.find(obj["problem_id"])
+          user_name = Contest.find(obj["user_id"])
+          puts user_name["name"]
+          result = {
+            user: obj["user"],
+            user_id: obj["user_id"],
+            room_id: obj["room_id"],
+            place: obj["place"],
+            content: problem["content"],
+            select1: problem["select1"],
+            select2: problem["select2"],
+            select3: problem["select3"],
+            select4: problem["select4"],
+            result: problem["result_id"]
+          }
+          puts result
+          s.send(JSON.generate(result))
+        end
+      end
+      ws.onclose do
+        settings.sockets.delete(ws)
+      end
+    end
+  end
+end
+
+
+
+get '/resolve' do
+  if request.websocket? then
+    request.websocket do |ws|
+      ws.onopen do
+        settings.sockets << ws
+      end
+      ws.onmessage do |msg|
+        settings.sockets.each do |s|
+          
+          obj = JSON.parse(msg)
+          puts obj
+          id = (obj["user_id"].to_i)%4 + 1
+          user = Contest.find(obj["room_id"])["user" + String(id)]
+          if(user < 0)
+            user = "player" + String(user.abs)
+          else
+            user = User.find(user)
+          end
+          if obj["state"] == 1
+            @contest = Contest.find(obj["room_id"])
+            puts "contest " ,@contest["result" + obj["place"]],obj["user_id"],"result" + obj["place"]
+            @contest["result" + obj["place"].to_s] = obj["user_id"]
+            @contest.save
+            puts "contest " ,@contest["result" + obj["place"]],obj["user_id"],"result" + obj["place"]
+            
+            #@content.update()
+            puts "contest " ,@contest["result" + obj["place"]],obj["user_id"],"result" + obj["place"]
+            puts 
+          else
+            puts "false"
+          end
+          result = {
+            user_id: id,
+            user: user,
+            room_id: obj["room_id"],
+            color: ""
+          }
+          
+          puts result
+          s.send(JSON.generate(result))
         end
       end
       ws.onclose do
