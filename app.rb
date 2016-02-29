@@ -48,7 +48,7 @@ post '/create' do
 end
 
 get '/ranking' do
-    @users = User.all.sort
+    @users = User.all.sort_by { |hash| -hash['point'].to_i }
     erb :ranking
 end
 
@@ -214,26 +214,20 @@ get '/resolve' do
           else
             user = User.find(user)
           end
+          result = {
+              user_id: id,
+              user: user,
+              room_id: obj["room_id"],
+              color: ""
+          }
           if obj["state"] == 1
             @contest = Contest.find(obj["room_id"])
-            puts "contest " ,@contest["result" + obj["place"]],obj["user_id"],"result" + obj["place"]
             @contest["result" + obj["place"].to_s] = obj["user_id"]
             @contest.save
-            puts "contest " ,@contest["result" + obj["place"]],obj["user_id"],"result" + obj["place"]
-            
-            #@content.update()
-            puts "contest " ,@contest["result" + obj["place"]],obj["user_id"],"result" + obj["place"]
-            puts 
+            result["place"] = obj["place"]
           else
-            puts "false"
+            
           end
-          result = {
-            user_id: id,
-            user: user,
-            room_id: obj["room_id"],
-            color: ""
-          }
-          
           puts result
           s.send(JSON.generate(result))
         end

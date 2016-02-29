@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz Quest!</title>
-    <link rel='stylesheet' href='/stylesheets/play-game.css' type='text/css' media='all' />
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/template.css' type='text/css' media='all' />
 
 </head>
 <body>
     
-    <form action='/create_page' method='get'>
-        <input type=submit value="問題作成">
-    </form>
-    <form action='/selector' method='get'>
-        <input type=submit value="ゲームを始める">
-    </form>
-    <form action='/user_login' method='get'>
-        <input type=submit value="ユーザページを見る">
-    </form>
-    <form action='/ranking' method='get'>
-        <input type=submit value="ランキングページを見る">
-    </form>
+<ol class="breadcrumb">
+  <li class="active">Home</li>
+</ol>
+    <div class='cdiv'>
+        <form action='/create_page' method='get'>
+            <input type=submit value="問題作成" class="btn btn-default index_btn">
+        </form>
+        <form action='/selector' method='get'>
+            <input type=submit value="ゲームを始める" class="btn btn-default index_btn">
+        </form>
+        <form action='/user_login' method='get'>
+            <input type=submit value="ユーザページを見る" class="btn btn-default index_btn">
+        </form>
+        <form action='/ranking' method='get'>
+            <input type=submit value="ランキングページを見る" class="btn btn-default index_btn">
+        </form>
+    </div>
 </body>
 </html>

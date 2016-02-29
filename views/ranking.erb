@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz Quest!</title>
-    <link rel='stylesheet' href='/stylesheets/play-game.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/stylesheets/template.css' type='text/css' media='all' />
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="active">Ranking</li>
+</ol>
     <% if @users.present? %>
         <% rank = 0 %>
+        <table class="table table-striped">
+        <tr>
+            <th>順位</th>
+            <th>name</th>
+            <th>参加数</th>
+            <th>ポイント</th>
+        </tr>
         <% @users.each do |content|%>
-            <%= rank += 1 %>th
-            <%= content.name %> :
-            <%= content.join %> :
-            <%= content.point %><br>
-            <hr>
+            <tr>
+            <td><%= rank += 1 %>th</td>
+            <td><%= content.name %></td>
+            <td><%= content.join %></td>
+            <td><%= content.point %></td>
+            </tr>
         <% end %>
+        </table>
     <% end %>
     
 </body>

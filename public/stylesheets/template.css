@@ -1,0 +1,45 @@
+
+.btn{
+    width: 50px;
+    margin: 5px;
+}
+.quest{
+    height: 50px;
+    border-radius: 50%;
+}
+
+.cdiv{
+  text-align: center;  
+}
+
+.center-table
+{
+  margin: 0 auto !important;
+  float: none !important;
+}
+
+/* index 画面*/
+.index_btn{
+  width: 200px;
+}
+/* login 画面 */
+.login_text{
+  width: 200px;
+}
+.login_btn{
+  width: auto;
+}
+
+/* user 画面 */
+.user_th{
+  width: 200px;
+}
+.user_table{
+  width: 80%;
+  margin: 20px;
+}
+
+/* create 画面 */
+.create_div{
+  width: 60%;
+}

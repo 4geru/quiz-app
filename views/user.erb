@@ -3,21 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz Quest!</title>
-    <link rel='stylesheet' href='/stylesheets/play-game.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/stylesheets/template.css' type='text/css' media='all' />
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <%= @user.name %>
+    
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/user_login">login</a></li>
+  <li class="active">user</li>
+</ol>
+    <table class="user_table table-striped">
+    <tr>
+        <th class="user_th">user name
+        <th class="user_th">problem create
+        <th class="user_th">join
+        <th class="user_th">point
+    <tr>
+        <td><%= @user.name %>
+        <td><%= @user.problems.length %>
+        <td><%= @user.join %>
+        <td><%= @user.point %>
+    </table>
     <br>
     <% if !@problems.present? %>
+        <% cnt = 0%>
+        <table class="table table-bordered">
         <%  @user.problems.each do |content|%>
-            <hr>
-            <%= content.content %><br>
-            <%= content.select1 %><br>
-            <%= content.select2 %><br>
-            <%= content.select3 %><br>
-            <%= content.select4 %><br>
-            <hr>
+            <tr>
+                <td colspan="4"><%= cnt +=1 %>. <%= content.content %>
+            <tr>
+                <td><%= content.select1 %>
+                <td><%= content.select2 %>
+                <td><%= content.select3 %>
+                <td><%= content.select4 %>
         <% end %>
+        </table>
     <% end %>
     
 </body>
