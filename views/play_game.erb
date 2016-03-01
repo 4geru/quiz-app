@@ -102,13 +102,11 @@
           console.log("correct");
           var li = document.createElement("li");
           document.getElementsByName("btn"+String(selector2.value))[0].className += " "+color[selector3.value-1];
-          li.textContent = user.innerText + " correct answer";
           msgbox.insertBefore(li, msgbox.firstChild);
       }else{
           state = 0;
           console.log("wrong");
           var li = document.createElement("li");
-          li.textContent = user.innerText + " wrong answer";
           msgbox.insertBefore(li, msgbox.firstChild);
       }
       var item = {
@@ -132,35 +130,36 @@
   <li><a href="/selector">select_room</a></li>
   <li class="active">room<%= @content.id %></li>
 </ol>
-<table>
+<table class="center-table play_game_table">
 		<tr >
 			<td><button type='button' name='btn1' value='<%=@content.problem1%>' class='btn btn-default quest' onclick='sent(<%=@content.problem1%>,1)'>1</button></td> 			<td><button type='button' name='btn2' value='<%=@content.problem2%>' class='btn btn-default quest' onclick='sent(<%=@content.problem2%>,2)'>2</button></td> 			<td><button type='button' name='btn3' value='<%=@content.problem3%>' class='btn btn-default quest' onclick='sent(<%=@content.problem3%>,3)'>3</button></td> 			<td><button type='button' name='btn4' value='<%=@content.problem4%>' class='btn btn-default quest' onclick='sent(<%=@content.problem4%>,4)'>4</button></td> 			<td><button type='button' name='btn5' value='<%=@content.problem5%>' class='btn btn-default quest' onclick='sent(<%=@content.problem5%>,5)'>5</button></td> 
-	    <td><p id="user" ><%= @user_name %></td><td></td>
+	    <td colspan="2" class="cdiv play_game_td"><p id="user" >Turn : <%= @user_name %></td>
 		</tr>
 		<tr >
 			<td><button type='button' name='btn6' value='<%=@content.problem6%>' class='btn btn-default quest' onclick='sent(<%=@content.problem6%>,6)'>6</button></td> 			<td><button type='button' name='btn7' value='<%=@content.problem7%>' class='btn btn-default quest' onclick='sent(<%=@content.problem7%>,7)'>7</button></td> 			<td><button type='button' name='btn8' value='<%=@content.problem8%>' class='btn btn-default quest' onclick='sent(<%=@content.problem8%>,8)'>8</button></td> 			<td><button type='button' name='btn9' value='<%=@content.problem9%>' class='btn btn-default quest' onclick='sent(<%=@content.problem9%>,9)'>9</button></td> 			<td><button type='button' name='btn10' value='<%=@content.problem10%>' class='btn btn-default quest' onclick='sent(<%=@content.problem10%>,10)'>10</button></td> 
-		  <td colspan="2" rowspan="2" id="content"></td>
+		  <td colspan="2" rowspan="2" class="play_game_td"><div class="cdiv" id="content"></div></td>
 		</tr>
 		<tr >
 			<td><button type='button' name='btn11' value='<%=@content.problem11%>' class='btn btn-default quest' onclick='sent(<%=@content.problem11%>,11)'>11</button></td> 			<td><button type='button' name='btn12' value='<%=@content.problem12%>' class='btn btn-default quest' onclick='sent(<%=@content.problem12%>,12)'>12</button></td> 			<td><button type='button' name='btn13' value='<%=@content.problem13%>' class='btn btn-default quest' onclick='sent(<%=@content.problem13%>,13)'>13</button></td> 			<td><button type='button' name='btn14' value='<%=@content.problem14%>' class='btn btn-default quest' onclick='sent(<%=@content.problem14%>,14)'>14</button></td> 			<td><button type='button' name='btn15' value='<%=@content.problem15%>' class='btn btn-default quest' onclick='sent(<%=@content.problem15%>,15)'>15</button></td> 
 		</tr>
 		<tr >
 			<td><button type='button' name='btn16' value='<%=@content.problem16%>' class='btn btn-default quest' onclick='sent(<%=@content.problem16%>,16)'>16</button></td> 			<td><button type='button' name='btn17' value='<%=@content.problem17%>' class='btn btn-default quest' onclick='sent(<%=@content.problem17%>,17)'>17</button></td> 			<td><button type='button' name='btn18' value='<%=@content.problem18%>' class='btn btn-default quest' onclick='sent(<%=@content.problem18%>,18)'>18</button></td> 			<td><button type='button' name='btn19' value='<%=@content.problem19%>' class='btn btn-default quest' onclick='sent(<%=@content.problem19%>,19)'>19</button></td> 			<td><button type='button' name='btn20' value='<%=@content.problem20%>' class='btn btn-default quest' onclick='sent(<%=@content.problem20%>,20)'>20</button></td> 
-		  <td><button id="select1" onclick='answer(1)'></button></td><td><button id="select2" onclick='answer(2)'></button></td>
+		  <td><button id="select1" onclick='answer(1)' class="btn btn-default play_game_btn"></button></td><td><button id="select2" onclick='answer(2)' class="btn btn-default play_game_btn"></button></td>
 		</tr>
 		<tr >
 			<td><button type='button' name='btn21' value='<%=@content.problem21%>' class='btn btn-default quest' onclick='sent(<%=@content.problem21%>,21)'>21</button></td> 			<td><button type='button' name='btn22' value='<%=@content.problem22%>' class='btn btn-default quest' onclick='sent(<%=@content.problem22%>,22)'>22</button></td> 			<td><button type='button' name='btn23' value='<%=@content.problem23%>' class='btn btn-default quest' onclick='sent(<%=@content.problem23%>,23)'>23</button></td> 			<td><button type='button' name='btn24' value='<%=@content.problem24%>' class='btn btn-default quest' onclick='sent(<%=@content.problem24%>,24)'>24</button></td> 			<td><button type='button' name='btn25' value='<%=@content.problem25%>' class='btn btn-default quest' onclick='sent(<%=@content.problem25%>,25)'>25</button></td> 
-		  <td><button id="select3" onclick='answer(3)' value="<%= @user_id %>"></button></td><td><button id="select4" onclick='answer(4)'></button></td>
+		  <td><button id="select3" onclick='answer(3)' value="<%= @user_id %>" class="btn btn-default play_game_btn"></button></td><td><button id="select4" onclick='answer(4)' class="btn btn-default play_game_btn"></button></td>
 		</tr>
+		<tr>
+    <form id="form">
+    <td colspan="5"><input type="text" id="send_msg">
+    <td><input type="submit" class="btn btn-default">
+    </form>
 </table>
 
 
 
 	    
-	<form id="form">
-	   <input type="text" id="send_msg">
-	   <input type="submit">
-	 </form>
 	 
 	 <ul id="msgs"></ul>
 </body>
