@@ -8,12 +8,17 @@
 
 </head>
 <body>
-    
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="active">Selector</li>
+</ol>
+<div class="cdiv">
     <form action='/select_room' method='get'>
-        <input type=submit value="1 Player">
+        <input type=submit value="1 Player" class="btn btn-default selector_btn">
     </form>
     <form action='/set_quiz' method='get'>
-        <input type=submit value="4 Player">
+        <input type=submit value="4 Player" class="btn btn-default selector_btn">
     </form>
+</div>
 </body>
 </html>

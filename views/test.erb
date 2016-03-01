@@ -8,20 +8,25 @@
 </head>
 <body>
     <% if @content.nil? %>
-    
+    <%= "Problem.create([" %>
+    <% cnt = 0 %>
     <% @contents.each do |content| %>
     {
-    <br>
-    content: "<%= content["problem"] %>",<br>
-    result: 0,<br>
-    sum: 0,<br>
-    user_id: 1,<br>
+    content: "<%= content["problem"] %>",
+    result: 0,
+    sum: 0,
+    user_id: 1,
     <% for num in 1..4 do %>
-        select<%= num %>: "<%= content["select" + String(num)]%>",<br>
+        select<%= num %>: "<%= content["select" + String(num)]%>",
     <% end %>
-    result_id: <%= content["result"] %><br>
-    },<br>
-       
+    result_id: <%= content["result"] %>
+    }
+    <% cnt+=1 %>   
+    <% if cnt != 20 %>
+        <%= "," %>
+    <% else %>
+        <%= "])"%>
+    <% end %>
     <% end %>
     <% end %>
     

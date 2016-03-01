@@ -16,17 +16,19 @@
         <% rank = 0 %>
         <table class="table table-striped">
         <tr>
-            <th>順位</th>
-            <th>name</th>
-            <th>参加数</th>
-            <th>ポイント</th>
+            <th>
+            <th>順位
+            <th>name
+            <th>参加数
+            <th>ポイント
         </tr>
         <% @users.each do |content|%>
             <tr>
-            <td><%= rank += 1 %>th</td>
-            <td><%= content.name %></td>
-            <td><%= content.join %></td>
-            <td><%= content.point %></td>
+            <td>
+            <td><%= rank += 1 %>th
+            <td><%= content.name %>
+            <td><%= content.join %>
+            <td><%= content.point %>
             </tr>
         <% end %>
         </table>
