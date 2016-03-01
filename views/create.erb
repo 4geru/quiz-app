@@ -11,25 +11,25 @@
   <li><a href="/">Home</a></li>
   <li class="active">Create</li>
 </ol>
-<div class="cdiv">
-        <form action='/create' method='post'>
-    <table class="center-table">
-            <tr><td>名前 <td> <input type="text" name="user_id">
-            <tr><td>問題 <td> <input type="text" name="content">
-            <tr><td>選択肢1 <td> <input type="text" name="select1">
-            <tr><td>選択肢2 <td> <input type="text" name="select2">
-            <tr><td>選択肢3 <td> <input type="text" name="select3">
-            <tr><td>選択肢4 <td> <input type="text" name="select4"
-            
+<div class="cdiv create_div">
+    <form action='/create' method='post'>
+    <table class="center-table table table-striped">
+            <tr><td><td>名前 <td> <input type="text" name="user_id" class="form-control"><td>
+            <tr><td><td>問題 <td> <input type="text" name="content" class="form-control"><td>
+            <tr><td><td>選択肢1 <td> <input type="text" name="select1" class="form-control"><td>
+            <tr><td><td>選択肢2 <td> <input type="text" name="select2" class="form-control"><td>
+            <tr><td><td>選択肢3 <td> <input type="text" name="select3" class="form-control"><td>
+            <tr><td><td>選択肢4 <td> <input type="text" name="select4" class="form-control"><td>
+            <tr><td><td>
             答えは？
-            <input type="radio" name="result_id" value="1">1
-            <input type="radio" name="result_id" value="2">2
-            <input type="radio" name="result_id" value="3">3
-            <input type="radio" name="result_id" value="4">4
+            <td>1. <input type="radio" name="result_id" value="1">
+            2. <input type="radio" name="result_id" value="2">
+            3. <input type="radio" name="result_id" value="3">
+            4. <input type="radio" name="result_id" value="4"><td>
     
-     </table>
-            <p><input type="submit" value="編集完了"></p>
+            <tr><td><td colspan="2"><input type="submit" value="編集完了" class="btn btn-default create_btn"><td>
         </form>
+    </table>
 </div>
 </body>
 </html>
